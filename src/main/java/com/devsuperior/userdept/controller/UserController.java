@@ -20,5 +20,16 @@ public class UserController {
         return result;
     }
 
+    @GetMapping(value = "/{id}")
+    public User findById(@PathVariable Long id) {
+        User result = repository.findById(id).get();
+        return result;
+    }
+
+    @PostMapping
+    public User insert(@RequestBody User user) {
+        User result = repository.save(user);
+        return result;
+    }
 
 }
